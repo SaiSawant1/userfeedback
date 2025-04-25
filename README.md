@@ -114,7 +114,7 @@ Create `.env` files in backend directory:
 
 Backend (.env):
 ```env
-PORT=3000
+PORT=8080
 DATABASE_URL="DATABSAE_URL_LINKE_PUBLIC"
 ```
 
