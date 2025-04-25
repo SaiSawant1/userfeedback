@@ -41,7 +41,12 @@ export const FeedbackForm = () => {
       feedback: values.feedback,
       category: values.category,
     });
-    console.log(response);
+    if (response.status === 201) {
+      alert("form submited");
+      form.resetField("userName");
+      form.resetField("email");
+      form.resetField("feedback");
+    }
   };
 
   return (

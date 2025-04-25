@@ -50,8 +50,7 @@ export const getAllFeedback = async (req, res) => {
     });
 
     return res.status(200).json({
-      success: true,
-      data: feedbacks,
+      feedbacks: feedbacks,
     });
   } catch (error) {
     console.error("Error fetching feedbacks:", error);
