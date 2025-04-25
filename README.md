@@ -31,7 +31,7 @@ A modern web application for collecting and managing user feedback, built with a
 - **Label** - Label component for form elements
 - **Radio Group** - Radio button group component
 
-## 🛠️ Features
+##  Features
 
 - **Feedback Collection**
   - User-friendly feedback form
@@ -49,7 +49,7 @@ A modern web application for collecting and managing user feedback, built with a
   - Responsive layout
   - Accessible components
 
-## 📦 Installation
+##  Installation
 
 1. Clone the repository:
    ```bash
@@ -60,10 +60,8 @@ A modern web application for collecting and managing user feedback, built with a
 2. Install all dependencies:
    ```bash
    # Install root dependencies (including concurrently)
-   npm install
 
-   # Install frontend and backend dependencies
-   npm run install:all
+   npm run install
    ```
 
 3. Start both frontend and backend:
@@ -72,41 +70,8 @@ A modern web application for collecting and managing user feedback, built with a
    npm start
    ```
 
-   Or start them individually:
-   ```bash
-   # Start only frontend
-   npm run start:frontend
 
-   # Start only backend
-   npm run start:backend
-   ```
-
-## 🔧 Development
-
-### Available Scripts
-
-```bash
-# Install all dependencies
-npm install && npm run install:all
-
-# Start both frontend and backend
-npm start
-
-# Start only frontend
-npm run start:frontend
-
-# Start only backend
-npm run start:backend
-
-# Build both frontend and backend
-npm run build
-
-# Build only frontend
-npm run build:frontend
-
-# Build only backend
-npm run build:backend
-```
+##  Development
 
 ### Environment Variables
 
