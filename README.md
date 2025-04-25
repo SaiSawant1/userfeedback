@@ -56,15 +56,24 @@ A modern web application for collecting and managing user feedback, built with a
    git clone git@github.com:SaiSawant1/userfeedback.git
    cd userfeedback
    ```
+2. Setup .env file
 
-2. Install all dependencies:
+Create `.env` files in backend directory:
+
+Backend (.env):
+```env
+PORT=8080
+DATABASE_URL="DATABSAE_URL_LINKE_PUBLIC"
+```
+
+3. Install all dependencies:
    ```bash
    # Install root dependencies (including concurrently)
 
    npm run install
    ```
 
-3. Start both frontend and backend:
+4. Start both frontend and backend:
    ```bash
    # Start both frontend and backend servers
    npm start
