@@ -70,7 +70,7 @@ DATABASE_URL="DATABSAE_URL_LINKE_PUBLIC"
    ```bash
    # Install root dependencies (including concurrently)
 
-   npm run install
+   npm install
    ```
 
 4. Start both frontend and backend:
