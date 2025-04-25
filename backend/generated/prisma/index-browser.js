@@ -122,7 +122,8 @@ exports.Prisma.FeedbackScalarFieldEnum = {
   userName: 'userName',
   email: 'email',
   feedback: 'feedback',
-  createAt: 'createAt'
+  category: 'category',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -134,7 +135,11 @@ exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
 };
-
+exports.Category = exports.$Enums.Category = {
+  suggestion: 'suggestion',
+  bug: 'bug',
+  feature: 'feature'
+};
 
 exports.Prisma.ModelName = {
   Feedback: 'Feedback'

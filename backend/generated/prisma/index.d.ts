@@ -20,6 +20,24 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 export type Feedback = $Result.DefaultSelection<Prisma.$FeedbackPayload>
 
 /**
+ * Enums
+ */
+export namespace $Enums {
+  export const Category: {
+  suggestion: 'suggestion',
+  bug: 'bug',
+  feature: 'feature'
+};
+
+export type Category = (typeof Category)[keyof typeof Category]
+
+}
+
+export type Category = $Enums.Category
+
+export const Category: typeof $Enums.Category
+
+/**
  * ##  Prisma Client ʲˢ
  *
  * Type-safe database client for TypeScript & Node.js
@@ -884,7 +902,8 @@ export namespace Prisma {
     userName: string | null
     email: string | null
     feedback: string | null
-    createAt: Date | null
+    category: $Enums.Category | null
+    createdAt: Date | null
   }
 
   export type FeedbackMaxAggregateOutputType = {
@@ -892,7 +911,8 @@ export namespace Prisma {
     userName: string | null
     email: string | null
     feedback: string | null
-    createAt: Date | null
+    category: $Enums.Category | null
+    createdAt: Date | null
   }
 
   export type FeedbackCountAggregateOutputType = {
@@ -900,7 +920,8 @@ export namespace Prisma {
     userName: number
     email: number
     feedback: number
-    createAt: number
+    category: number
+    createdAt: number
     _all: number
   }
 
@@ -910,7 +931,8 @@ export namespace Prisma {
     userName?: true
     email?: true
     feedback?: true
-    createAt?: true
+    category?: true
+    createdAt?: true
   }
 
   export type FeedbackMaxAggregateInputType = {
@@ -918,7 +940,8 @@ export namespace Prisma {
     userName?: true
     email?: true
     feedback?: true
-    createAt?: true
+    category?: true
+    createdAt?: true
   }
 
   export type FeedbackCountAggregateInputType = {
@@ -926,7 +949,8 @@ export namespace Prisma {
     userName?: true
     email?: true
     feedback?: true
-    createAt?: true
+    category?: true
+    createdAt?: true
     _all?: true
   }
 
@@ -1007,7 +1031,8 @@ export namespace Prisma {
     userName: string
     email: string
     feedback: string
-    createAt: Date
+    category: $Enums.Category
+    createdAt: Date
     _count: FeedbackCountAggregateOutputType | null
     _min: FeedbackMinAggregateOutputType | null
     _max: FeedbackMaxAggregateOutputType | null
@@ -1032,7 +1057,8 @@ export namespace Prisma {
     userName?: boolean
     email?: boolean
     feedback?: boolean
-    createAt?: boolean
+    category?: boolean
+    createdAt?: boolean
   }, ExtArgs["result"]["feedback"]>
 
   export type FeedbackSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1040,7 +1066,8 @@ export namespace Prisma {
     userName?: boolean
     email?: boolean
     feedback?: boolean
-    createAt?: boolean
+    category?: boolean
+    createdAt?: boolean
   }, ExtArgs["result"]["feedback"]>
 
   export type FeedbackSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1048,7 +1075,8 @@ export namespace Prisma {
     userName?: boolean
     email?: boolean
     feedback?: boolean
-    createAt?: boolean
+    category?: boolean
+    createdAt?: boolean
   }, ExtArgs["result"]["feedback"]>
 
   export type FeedbackSelectScalar = {
@@ -1056,10 +1084,11 @@ export namespace Prisma {
     userName?: boolean
     email?: boolean
     feedback?: boolean
-    createAt?: boolean
+    category?: boolean
+    createdAt?: boolean
   }
 
-  export type FeedbackOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userName" | "email" | "feedback" | "createAt", ExtArgs["result"]["feedback"]>
+  export type FeedbackOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userName" | "email" | "feedback" | "category" | "createdAt", ExtArgs["result"]["feedback"]>
 
   export type $FeedbackPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Feedback"
@@ -1069,7 +1098,8 @@ export namespace Prisma {
       userName: string
       email: string
       feedback: string
-      createAt: Date
+      category: $Enums.Category
+      createdAt: Date
     }, ExtArgs["result"]["feedback"]>
     composites: {}
   }
@@ -1497,7 +1527,8 @@ export namespace Prisma {
     readonly userName: FieldRef<"Feedback", 'String'>
     readonly email: FieldRef<"Feedback", 'String'>
     readonly feedback: FieldRef<"Feedback", 'String'>
-    readonly createAt: FieldRef<"Feedback", 'DateTime'>
+    readonly category: FieldRef<"Feedback", 'Category'>
+    readonly createdAt: FieldRef<"Feedback", 'DateTime'>
   }
     
 
@@ -1883,7 +1914,8 @@ export namespace Prisma {
     userName: 'userName',
     email: 'email',
     feedback: 'feedback',
-    createAt: 'createAt'
+    category: 'category',
+    createdAt: 'createdAt'
   };
 
   export type FeedbackScalarFieldEnum = (typeof FeedbackScalarFieldEnum)[keyof typeof FeedbackScalarFieldEnum]
@@ -1921,6 +1953,20 @@ export namespace Prisma {
    * Reference to a field of type 'String[]'
    */
   export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Category'
+   */
+  export type EnumCategoryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Category'>
+    
+
+
+  /**
+   * Reference to a field of type 'Category[]'
+   */
+  export type ListEnumCategoryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Category[]'>
     
 
 
@@ -1963,7 +2009,8 @@ export namespace Prisma {
     userName?: StringFilter<"Feedback"> | string
     email?: StringFilter<"Feedback"> | string
     feedback?: StringFilter<"Feedback"> | string
-    createAt?: DateTimeFilter<"Feedback"> | Date | string
+    category?: EnumCategoryFilter<"Feedback"> | $Enums.Category
+    createdAt?: DateTimeFilter<"Feedback"> | Date | string
   }
 
   export type FeedbackOrderByWithRelationInput = {
@@ -1971,7 +2018,8 @@ export namespace Prisma {
     userName?: SortOrder
     email?: SortOrder
     feedback?: SortOrder
-    createAt?: SortOrder
+    category?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type FeedbackWhereUniqueInput = Prisma.AtLeast<{
@@ -1982,7 +2030,8 @@ export namespace Prisma {
     userName?: StringFilter<"Feedback"> | string
     email?: StringFilter<"Feedback"> | string
     feedback?: StringFilter<"Feedback"> | string
-    createAt?: DateTimeFilter<"Feedback"> | Date | string
+    category?: EnumCategoryFilter<"Feedback"> | $Enums.Category
+    createdAt?: DateTimeFilter<"Feedback"> | Date | string
   }, "id">
 
   export type FeedbackOrderByWithAggregationInput = {
@@ -1990,7 +2039,8 @@ export namespace Prisma {
     userName?: SortOrder
     email?: SortOrder
     feedback?: SortOrder
-    createAt?: SortOrder
+    category?: SortOrder
+    createdAt?: SortOrder
     _count?: FeedbackCountOrderByAggregateInput
     _max?: FeedbackMaxOrderByAggregateInput
     _min?: FeedbackMinOrderByAggregateInput
@@ -2004,7 +2054,8 @@ export namespace Prisma {
     userName?: StringWithAggregatesFilter<"Feedback"> | string
     email?: StringWithAggregatesFilter<"Feedback"> | string
     feedback?: StringWithAggregatesFilter<"Feedback"> | string
-    createAt?: DateTimeWithAggregatesFilter<"Feedback"> | Date | string
+    category?: EnumCategoryWithAggregatesFilter<"Feedback"> | $Enums.Category
+    createdAt?: DateTimeWithAggregatesFilter<"Feedback"> | Date | string
   }
 
   export type FeedbackCreateInput = {
@@ -2012,7 +2063,8 @@ export namespace Prisma {
     userName: string
     email: string
     feedback: string
-    createAt: Date | string
+    category: $Enums.Category
+    createdAt?: Date | string
   }
 
   export type FeedbackUncheckedCreateInput = {
@@ -2020,7 +2072,8 @@ export namespace Prisma {
     userName: string
     email: string
     feedback: string
-    createAt: Date | string
+    category: $Enums.Category
+    createdAt?: Date | string
   }
 
   export type FeedbackUpdateInput = {
@@ -2028,7 +2081,8 @@ export namespace Prisma {
     userName?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     feedback?: StringFieldUpdateOperationsInput | string
-    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    category?: EnumCategoryFieldUpdateOperationsInput | $Enums.Category
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FeedbackUncheckedUpdateInput = {
@@ -2036,7 +2090,8 @@ export namespace Prisma {
     userName?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     feedback?: StringFieldUpdateOperationsInput | string
-    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    category?: EnumCategoryFieldUpdateOperationsInput | $Enums.Category
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FeedbackCreateManyInput = {
@@ -2044,7 +2099,8 @@ export namespace Prisma {
     userName: string
     email: string
     feedback: string
-    createAt: Date | string
+    category: $Enums.Category
+    createdAt?: Date | string
   }
 
   export type FeedbackUpdateManyMutationInput = {
@@ -2052,7 +2108,8 @@ export namespace Prisma {
     userName?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     feedback?: StringFieldUpdateOperationsInput | string
-    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    category?: EnumCategoryFieldUpdateOperationsInput | $Enums.Category
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FeedbackUncheckedUpdateManyInput = {
@@ -2060,7 +2117,8 @@ export namespace Prisma {
     userName?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     feedback?: StringFieldUpdateOperationsInput | string
-    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    category?: EnumCategoryFieldUpdateOperationsInput | $Enums.Category
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -2076,6 +2134,13 @@ export namespace Prisma {
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     mode?: QueryMode
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type EnumCategoryFilter<$PrismaModel = never> = {
+    equals?: $Enums.Category | EnumCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.Category[] | ListEnumCategoryFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Category[] | ListEnumCategoryFieldRefInput<$PrismaModel>
+    not?: NestedEnumCategoryFilter<$PrismaModel> | $Enums.Category
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
@@ -2094,7 +2159,8 @@ export namespace Prisma {
     userName?: SortOrder
     email?: SortOrder
     feedback?: SortOrder
-    createAt?: SortOrder
+    category?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type FeedbackMaxOrderByAggregateInput = {
@@ -2102,7 +2168,8 @@ export namespace Prisma {
     userName?: SortOrder
     email?: SortOrder
     feedback?: SortOrder
-    createAt?: SortOrder
+    category?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type FeedbackMinOrderByAggregateInput = {
@@ -2110,7 +2177,8 @@ export namespace Prisma {
     userName?: SortOrder
     email?: SortOrder
     feedback?: SortOrder
-    createAt?: SortOrder
+    category?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -2131,6 +2199,16 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type EnumCategoryWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Category | EnumCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.Category[] | ListEnumCategoryFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Category[] | ListEnumCategoryFieldRefInput<$PrismaModel>
+    not?: NestedEnumCategoryWithAggregatesFilter<$PrismaModel> | $Enums.Category
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCategoryFilter<$PrismaModel>
+    _max?: NestedEnumCategoryFilter<$PrismaModel>
+  }
+
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -2149,6 +2227,10 @@ export namespace Prisma {
     set?: string
   }
 
+  export type EnumCategoryFieldUpdateOperationsInput = {
+    set?: $Enums.Category
+  }
+
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
   }
@@ -2165,6 +2247,13 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedEnumCategoryFilter<$PrismaModel = never> = {
+    equals?: $Enums.Category | EnumCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.Category[] | ListEnumCategoryFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Category[] | ListEnumCategoryFieldRefInput<$PrismaModel>
+    not?: NestedEnumCategoryFilter<$PrismaModel> | $Enums.Category
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -2204,6 +2293,16 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type NestedEnumCategoryWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Category | EnumCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.Category[] | ListEnumCategoryFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Category[] | ListEnumCategoryFieldRefInput<$PrismaModel>
+    not?: NestedEnumCategoryWithAggregatesFilter<$PrismaModel> | $Enums.Category
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCategoryFilter<$PrismaModel>
+    _max?: NestedEnumCategoryFilter<$PrismaModel>
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {

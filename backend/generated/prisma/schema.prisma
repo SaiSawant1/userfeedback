@@ -14,10 +14,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Category {
+  suggestion
+  bug
+  feature
+}
+
 model Feedback {
-  id       String   @id @default(cuid())
-  userName String
-  email    String
-  feedback String
-  createAt DateTime
+  id        String   @id @default(cuid())
+  userName  String
+  email     String
+  feedback  String
+  category  Category
+  createdAt DateTime @default(now())
 }
