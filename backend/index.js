@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 app.use(cors({
   origin: "http://localhost:3000",
-  credentials: true, // optional, if you're using cookies/auth
+  credentials: true,
 }));
 
 app.use(express.json());
